@@ -15,6 +15,7 @@ function pickerChanger()  {
     pickedNameLength = pickedName.length;
     image =document.getElementById("changingImage")
     image.src = pickedImage
+    blankSetter()
 }
 
 //on Key Press
@@ -51,10 +52,8 @@ function buildOurBlank() {
 function blankSetter() {
 for (var i = 0; i < pickedNameLength; i++) {
     blankWord.push("_");}  
-  /* wordblanks = document.getElementById("guess-word") */
+ 
    wordblanks.innerHTML = buildOurBlank()
 }
 
 window.onload = pickerChanger()
-window.onload = blankSetter()
-window.onload = splitPickedName()

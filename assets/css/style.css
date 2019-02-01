@@ -2,3 +2,10 @@
     width: 60%;
 }
 
+.overlay {
+    background-color: grey;
+    opacity: 60%;
+    width: 100%;
+    height: auto;
+    z-index: 10;
+}
