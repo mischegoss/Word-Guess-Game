@@ -30,7 +30,7 @@ function splitPickedName () {
 
 function checkPick () {
 
-    if (pickedNameLetters.includes(userpick)) {
+    if (pickedNameLetters.includes(userpick) && event.keyCode > 64 && event.keyCode < 91) {
 
         for (var i= 0; i < pickedNameLength; i++) {
             if (pickedNameLetters[i] === userpick) {
@@ -42,14 +42,16 @@ function checkPick () {
 console.log(blankWord);
 console.log(pickedNameLetters)
     } else {
+        if (event.keyCode > 64 && event.keyCode < 91){
         guessedLetter.push(userpick)
+        }
         buildGuessBox()
         console.log("No Match")
     }
 }
 
 
-/*_Hjjjjjjjjjjjjjjjjjjjjjjj */
+
 function buildGuessBox() {
     for (var i = 0; i < guessedLetter.length; i++) {
       guessbox.innerHTML= guessedLetter;
