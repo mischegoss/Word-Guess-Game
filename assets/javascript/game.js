@@ -8,7 +8,7 @@ let guessedLetter = []
 let wordblanks = document.getElementById("guess-word")
 let guessbox = document.getElementById("guessed-letters-box")
 
-let userpick = "z";
+let userpick;
 // on Load
 
 function pickerChanger()  {
@@ -46,7 +46,7 @@ console.log(pickedNameLetters)
 
 function buildGuessBox() {
     for (var i = 0; i < guessedLetter.length; i++) {
-      guessbox.innerHTML= guessedLetter[i];
+      guessbox.innerHTML= guessedLetter;
     }
   }
 
@@ -61,13 +61,16 @@ function buildOurBlank() {
 function blankSetter() {
 for (var i = 0; i < pickedNameLength; i++) {
     blankWord.push("_");}  
-  /* wordblanks = document.getElementById("guess-word") */
    wordblanks.innerHTML = buildOurBlank()
 }
 
 window.onload = pickerChanger()
 
-window.onload = splitPickedName()
+document.onkeyup = function (event) {
+    userpick = String.fromCharCode(event.keyCode).toLowerCase();
+    splitPickedName();
+}
+
 
 
 
