@@ -6,7 +6,7 @@ let pickedNameLength;
 let pickedNameLetters = []
 let wordblanks = document.getElementById("guess-word")
 
-let userpick = "r";
+let userpick = "s";
 // on Load
 
 function pickerChanger()  {
