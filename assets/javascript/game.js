@@ -17,6 +17,7 @@ function pickerChanger()  {
     pickedNameLength = pickedName.length;
     image =document.getElementById("changingImage")
     image.src = pickedImage
+    splitPickedName()
     blankSetter();
     
 }
@@ -25,7 +26,10 @@ function pickerChanger()  {
 function splitPickedName () {
     for (var i=0; i <pickedNameLength; i++) {
       pickedNameLetters.push(pickedName.charAt(i));
-    }
+    }}
+
+function checkPick () {
+
     if (pickedNameLetters.includes(userpick)) {
 
         for (var i= 0; i < pickedNameLength; i++) {
@@ -44,6 +48,8 @@ console.log(pickedNameLetters)
     }
 }
 
+
+/*_Hjjjjjjjjjjjjjjjjjjjjjjj */
 function buildGuessBox() {
     for (var i = 0; i < guessedLetter.length; i++) {
       guessbox.innerHTML= guessedLetter;
@@ -68,8 +74,10 @@ window.onload = pickerChanger()
 
 document.onkeyup = function (event) {
     userpick = String.fromCharCode(event.keyCode).toLowerCase();
-    splitPickedName();
+    checkPick();
 }
+
+
 
 
 
