@@ -4,9 +4,11 @@ let pickedName;
 let blankWord = []
 let pickedNameLength;
 let pickedNameLetters = []
+let guessedLetter = []
 let wordblanks = document.getElementById("guess-word")
+let guessbox = document.getElementById("guessed-letters-box")
 
-let userpick = "s";
+let userpick = "z";
 // on Load
 
 function pickerChanger()  {
@@ -15,7 +17,8 @@ function pickerChanger()  {
     pickedNameLength = pickedName.length;
     image =document.getElementById("changingImage")
     image.src = pickedImage
-    blankSetter()
+    blankSetter();
+    
 }
 
 //on Key Press
@@ -35,11 +38,17 @@ function splitPickedName () {
 console.log(blankWord);
 console.log(pickedNameLetters)
     } else {
+        guessedLetter.push(userpick)
+        buildGuessBox()
         console.log("No Match")
     }
 }
 
-
+function buildGuessBox() {
+    for (var i = 0; i < guessedLetter.length; i++) {
+      guessbox.innerHTML= guessedLetter[i];
+    }
+  }
 
 function buildOurBlank() {
     var blankbuilt = "";
@@ -52,8 +61,17 @@ function buildOurBlank() {
 function blankSetter() {
 for (var i = 0; i < pickedNameLength; i++) {
     blankWord.push("_");}  
- 
+  /* wordblanks = document.getElementById("guess-word") */
    wordblanks.innerHTML = buildOurBlank()
 }
 
 window.onload = pickerChanger()
+
+window.onload = splitPickedName()
+
+
+
+
+
+
+
