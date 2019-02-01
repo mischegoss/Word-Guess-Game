@@ -1,19 +1,23 @@
-let pickedName = "smurfette"
-let pickedImage = "assets/images/" + pickedName + ".png"
+let smurfs = ["brainy", "smurfette", "astro", "actor", "baker"]
+let pickedImage;
+let pickedName;
 let blankWord = []
-let pickedNameLength = pickedName.length
+let pickedNameLength;
 let pickedNameLetters = []
 let wordblanks = document.getElementById("guess-word")
 
 let userpick = "r";
+// on Load
 
-function imageChanger()  {
+function pickerChanger()  {
+    pickedName = smurfs[Math.floor(Math.random() * smurfs.length)];
+    pickedImage = "assets/images/" + pickedName + ".png";
+    pickedNameLength = pickedName.length;
     image =document.getElementById("changingImage")
     image.src = pickedImage
-
 }
 
-
+//on Key Press
 function splitPickedName () {
     for (var i=0; i <pickedNameLength; i++) {
       pickedNameLetters.push(pickedName.charAt(i));
@@ -51,6 +55,6 @@ for (var i = 0; i < pickedNameLength; i++) {
    wordblanks.innerHTML = buildOurBlank()
 }
 
-window.onload = imageChanger()
+window.onload = pickerChanger()
 window.onload = blankSetter()
 window.onload = splitPickedName()
