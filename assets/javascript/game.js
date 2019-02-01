@@ -1,4 +1,4 @@
-let pickedName = "actor"
+let pickedName = "brainy"
 let pickedImage = "assets/images/" + pickedName + ".png"
 let blankWord = []
 let pickedNameLength = pickedName.length
@@ -19,8 +19,16 @@ function splitPickedName () {
       pickedNameLetters.push(pickedName.charAt(i));
     }
     if (pickedNameLetters.includes(userpick)) {
-        index = pickedNameLetters.findIndex(pickedNameLetter => pickedNameLetter === userpick);
-        console.log(index)
+
+        for (var i= 0; i < pickedNameLength; i++) {
+            if (pickedNameLetters[i] === userpick) {
+                blankWord[i]  = pickedNameLetters[i];
+            }
+            wordblanks.innerHTML = buildOurBlank()
+        }
+
+console.log(blankWord);
+console.log(pickedNameLetters)
     } else {
         console.log("No Match")
     }
