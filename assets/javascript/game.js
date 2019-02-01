@@ -1,4 +1,4 @@
-let pickedName = "brainy"
+let pickedName = "smurfette"
 let pickedImage = "assets/images/" + pickedName + ".png"
 let blankWord = []
 let pickedNameLength = pickedName.length
