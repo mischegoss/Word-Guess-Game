@@ -15,20 +15,30 @@
 
 
     <!--Jumbotron-->
-    <div class="jumbotron ">
-        <h1 class="display-4 text-center">Game Page</h1>
+    <div class="jumbotron">
+      
+      <div class = "jumbo-box mx-auto">
+      <h6 class="display-4 text-center">How Well Do You Know the Smurfs?</h6>
+      <p class = "text-center">Pick a letter to start the game</p>
       </div>
+    </div>
+   
 
     <!--Main Container-->
 
     <div class="card mx-auto">
       
-        <div class = "overlay">
+        
         <img id="changingImage" src="assets/images/pjimage.png" class="card-img-top mw-75" alt="Group of Retro Smurfs">
-        </div>
+        
         <div class="card-body">
-          <h2 class="card-title" id ="guess-word"></h2>
-          <p class="card-text" class id="guessed-letters-box"></p>
+          <h1 class="card-title text-center" id ="guess-word"></h1>
+          <div class ="guess-border-box">
+          <h5 class="card-title text-center guess-title text-mute">Letter Guesses</h5>
+          <br>
+          <p class="card-text text-center" class id="guessed-letters-box"></p>
+          </div>
+          <br>
           <a href="game.html" class="btn btn-primary">Let's Play</a>
         </div>
       </div>

@@ -7,6 +7,8 @@ let pickedNameLetters = []
 let guessedLetter = []
 let wordblanks = document.getElementById("guess-word")
 let guessbox = document.getElementById("guessed-letters-box")
+let guess = 0;
+let win = 0;
 
 let userpick;
 // on Load
@@ -23,6 +25,11 @@ function pickerChanger()  {
 }
 
 //on Key Press
+
+function countGuess () {
+    guess --;
+    
+}
 function splitPickedName () {
     for (var i=0; i <pickedNameLength; i++) {
       pickedNameLetters.push(pickedName.charAt(i));
@@ -47,6 +54,7 @@ console.log(pickedNameLetters)
         }
         buildGuessBox()
         console.log("No Match")
+
     }
 }
 
