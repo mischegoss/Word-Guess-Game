@@ -1,25 +1,36 @@
+
+/* This is the array that holds all the smurf names */
+
 let smurfs = ["actor", "astro", "baker", "brainy", "chef", "greedy", "painter", "scaredy", "smurfette", "vanity"]
-let pickedImage;
-let pickedName;
-let blankWord = []
-let pickedNameLength;
-let pickedNameLetters = []
-let guessedLetter = [];
+
+/* These are the elements that will be manipulated by Javascript. */
 let wordblanks = document.getElementById("guess-word");
 let guessbox = document.getElementById("guessed-letters-box");
 let guesscount = document.getElementById("guess-count");
-let image = document.getElementById("changingImage");
+let image = document.getElementById("changing-image");
 let wincount = document.getElementById("win-count");
 let button = document.getElementById("button");
 let goaway = document.getElementById("go-away");
 let getstarted = document.getElementById("get-started");
 let jumbotitle = document.getElementById("jumbo-title");
 let guessframe = document.getElementById("guess-frame")
+
+/* This sets initial guess and win counts */
 let guess = 10;
 let win = 0;
+
+/* Sets up empty variables and arrays */
 let valid;
 let userpick;
+let pickedImage;
+let pickedName;
+let blankWord = []
+let pickedNameLength;
+let pickedNameLetters = []
+let guessedLetter = [];
 
+/* This function assigns the variable pickedName a random name from smurfs array then
+ * adds the correlating image. It also calls the functions needed to get blanks on screen */
 function pickerChanger() {
   pickedName = smurfs[Math.floor(Math.random() * smurfs.length)];
   pickedImage = "assets/images/" + pickedName + ".png";
@@ -29,25 +40,91 @@ function pickerChanger() {
   blankSetter();
 }
 
-function game() {
-  checkPick();
-  checkWin();
-  countGuess();
+/* This function splits up picked name into a new array containing the letters of name ie. ['s','m', 'u', 'r', 'f'] */
+function splitPickedName() {
+  for (var i = 0; i < pickedNameLength; i++) {
+    pickedNameLetters.push(pickedName.charAt(i));
+  }
 }
 
-function playAgain() {
-  button.classList.toggle("hide");
-  guessedLetter = [];
-  pickedNameLetters = [];
-  blankWord = [];
-  guessbox.innerHTML = "";
-  guesscount.innerHTML = "10";
-  guess = 10;
-  goaway.classList.toggle("hide");
-  pickerChanger();
-  game();
+/* This function creates a new array of "_" and uses the buildOurBlank function to push it to the user screen */
+function blankSetter() {
+  for (var i = 0; i < pickedNameLength; i++) {
+    blankWord.push("_");
+  }
+  wordblanks.innerHTML = buildOurBlank();
 }
 
+function buildOurBlank() {
+  var blankbuilt = "";
+  for (var i = 0; i < blankWord.length; i++) {
+    blankbuilt += " " + blankWord[i];
+  }
+  return blankbuilt;
+}
+
+
+/*This checks to make sure it is a valid key and if match replaces it, otherwise the letter is added to the guess box */
+
+function checkPick() {
+  if (
+    pickedNameLetters.includes(userpick) &&
+    event.keyCode > 64 &&
+    event.keyCode < 91
+  ) {
+    for (var i = 0; i < pickedNameLength; i++) {
+      if (pickedNameLetters[i] === userpick) {
+        blankWord[i] = pickedNameLetters[i];
+      }
+      wordblanks.innerHTML = buildOurBlank();
+    }
+
+    console.log(blankWord);
+    console.log(pickedNameLetters);
+  } else {
+    if (event.keyCode > 64 && event.keyCode < 91) {
+      guessedLetter.push(userpick);
+    }
+    buildGuessBox();
+    console.log("No Match");
+  }
+}
+
+/* This function builds the wrong guess box */
+
+function buildGuessBox() {
+  for (var i = 0; i < guessedLetter.length; i++) {
+    guessbox.innerHTML = guessedLetter;
+  }
+}
+
+/* This function counts guesses and triggers lose screen */
+
+function countGuess() {
+  if (guess > 1 && event.keyCode > 64 && event.keyCode < 91) {
+    guess--;
+    guesscount.innerText = guess;
+  } else {
+  }
+  if (guess === 1) {
+    guesscount.innerText = "0";
+    image.src = "assets/images/lose.png";
+    wordblanks.innerHTML = "YOU LOSE";
+    button.classList.toggle("hide");
+    goaway.classList.toggle("hide");
+  }
+}
+
+/*This functions check for win and trigger apropriate screens */
+
+function checkWin() {
+  if (blankWord.includes("_")) {
+    console.log("No win");
+  } else {
+    setTimeout(winTrigger, 500);
+  }
+}
+/****/
 function winTrigger() {
   pickedNameOut();
 
@@ -75,58 +152,8 @@ function winTrigger() {
   }
 }
 
-function checkWin() {
-  if (blankWord.includes("_")) {
-    console.log("No win");
-  } else {
-    setTimeout(winTrigger, 500);
-  }
-}
-
-function countGuess() {
-  if (guess > 1 && event.keyCode > 64 && event.keyCode < 91) {
-    guess--;
-    guesscount.innerText = guess;
-  } else {
-  }
-  if (guess === 1) {
-    guesscount.innerText = "0";
-    image.src = "assets/images/lose.png";
-    wordblanks.innerHTML = "YOU LOSE";
-    button.classList.toggle("hide");
-    goaway.classList.toggle("hide");
-  }
-}
-
-function splitPickedName() {
-  for (var i = 0; i < pickedNameLength; i++) {
-    pickedNameLetters.push(pickedName.charAt(i));
-  }
-}
-
-function checkPick() {
-  if (
-    pickedNameLetters.includes(userpick) &&
-    event.keyCode > 64 &&
-    event.keyCode < 91
-  ) {
-    for (var i = 0; i < pickedNameLength; i++) {
-      if (pickedNameLetters[i] === userpick) {
-        blankWord[i] = pickedNameLetters[i];
-      }
-      wordblanks.innerHTML = buildOurBlank();
-    }
-
-    console.log(blankWord);
-    console.log(pickedNameLetters);
-  } else {
-    if (event.keyCode > 64 && event.keyCode < 91) {
-      guessedLetter.push(userpick);
-    }
-    buildGuessBox();
-    console.log("No Match");
-  }
-}
+/*If a user guesses the name correctly, this function eliminates it from the array. When the array equals zero (see function above) 
+a Smurftastic screen is triggered*/
 
 function pickedNameOut() {
   let pickedNameIndex = smurfs.indexOf(pickedName);
@@ -134,26 +161,31 @@ function pickedNameOut() {
   console.log(smurfs);
 }
 
-function buildGuessBox() {
-  for (var i = 0; i < guessedLetter.length; i++) {
-    guessbox.innerHTML = guessedLetter;
-  }
+/*Loads up game*/
+
+function game() {
+  checkPick();
+  checkWin();
+  countGuess();
 }
 
-function buildOurBlank() {
-  var blankbuilt = "";
-  for (var i = 0; i < blankWord.length; i++) {
-    blankbuilt += " " + blankWord[i];
-  }
-  return blankbuilt;
+/* Play again triggered by button. Note: I know in the instructions it said automatically, but I liked the idea of additional user input */
+
+function playAgain() {
+  button.classList.toggle("hide");
+  guessedLetter = [];
+  pickedNameLetters = [];
+  blankWord = [];
+  guessbox.innerHTML = "";
+  guesscount.innerHTML = "10";
+  guess = 10;
+  goaway.classList.toggle("hide");
+  pickerChanger();
+  game();
 }
 
-function blankSetter() {
-  for (var i = 0; i < pickedNameLength; i++) {
-    blankWord.push("_");
-  }
-  wordblanks.innerHTML = buildOurBlank();
-}
+
+/* Set up and event listener */
 
 window.onload = pickerChanger();
 document.onkeyup = function(event) {

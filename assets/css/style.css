@@ -1,21 +1,33 @@
+/* Universal styling */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: Comic Sans;
+  color: #133d46;
+}
 
+body {
+  background-color: #eef8fa;
+}
+
+
+/*Styling for Card */
 .card {
     width: 60%;
     border: 5px solid #5dbcd2;
   }
   
-  #changingImage {
+  #changing-image {
     width: 80%;
     padding: 10px;
   }
   
   .guess-border-box {
     border: 2px solid #5dbcd2;
-  }
-  
-  
-  body {
-    background-color: #eef8fa;
   }
   
   .btn {
@@ -29,24 +41,17 @@
   .guess-title {
     font: 1.5em;
   }
+
+  /* Hide class */
   
   .hide {
     display: none;
   }
   
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p {
-    font-family: Comic Sans;
-    color: #133d46;
-  }
+ /* Media query for larger screens (image adjust */
   
   @media only screen and (min-width: 800px) {
-    #changingImage {
+    #changing-image {
       width: 50%;
       padding: 20px;
     }
