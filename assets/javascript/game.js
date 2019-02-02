@@ -37,7 +37,7 @@ function checkWin()  {
     console.log("No win")
     } else {
         win ++;
-        image.src= "assets/images/lose.png"
+        image.src= "assets/images/win.gif"
         wordblanks.innerHTML = "YOU WIN!"
 
     }
