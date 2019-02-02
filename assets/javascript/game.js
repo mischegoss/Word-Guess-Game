@@ -13,7 +13,7 @@ let wincount = document.getElementById("win-count")
 let button = document.getElementById("button")
 let guess = 10;
 let win = 0;
-
+let valid;
 let userpick;
 
 
@@ -32,6 +32,17 @@ function game() {
     checkWin()
     countGuess()
 
+}
+
+function playAgain() {
+    button.classList.toggle("hide")
+    guessedLetter = []
+    pickedNameLetters = []
+    blankWord = []
+    guessbox.innerHTML = ""
+    guess = 11;
+    pickerChanger()
+    game()
 }
 
 function checkWin()  {
@@ -56,6 +67,7 @@ function countGuess () {
         guesscount.innerText = "0";
         image.src= "assets/images/lose.png"
         wordblanks.innerHTML = "YOU LOSE"
+        button.classList.toggle("hide")
         
     }
 
@@ -65,9 +77,9 @@ function splitPickedName () {
       pickedNameLetters.push(pickedName.charAt(i));
     }}
 
-function checkPick () {
+function checkPick() {
 
-    if (pickedNameLetters.includes(userpick) && event.keyCode > 64 && event.keyCode < 91) {
+    if (pickedNameLetters.includes(userpick)  && event.keyCode > 64 && event.keyCode < 91)  {
 
         for (var i= 0; i < pickedNameLength; i++) {
             if (pickedNameLetters[i] === userpick) {
@@ -80,7 +92,7 @@ function checkPick () {
 console.log(blankWord);
 console.log(pickedNameLetters)
     } else {
-        if (event.keyCode > 64 && event.keyCode < 91){
+        if (event.keyCode > 64 && event.keyCode < 91) { 
         guessedLetter.push(userpick)
         }
         buildGuessBox()
@@ -90,7 +102,13 @@ console.log(pickedNameLetters)
     }
 }
 
-
+function checkKeyStroke() {
+    if (event.keyCode > 64 && event.keyCode < 91) {
+        valid = "yes"
+    } else {
+        valid = "no"
+    }
+}
 
 function buildGuessBox() {
     for (var i = 0; i < guessedLetter.length; i++) {
@@ -115,8 +133,12 @@ for (var i = 0; i < pickedNameLength; i++) {
 window.onload = pickerChanger()
 
 document.onkeyup = function (event) {
+
+    
+    
     userpick = String.fromCharCode(event.keyCode).toLowerCase();
-    game();
+    game(); 
+    
 }
 
 
