@@ -9,11 +9,13 @@ let wordblanks = document.getElementById("guess-word")
 let guessbox = document.getElementById("guessed-letters-box")
 let guesscount = document.getElementById("guess-count")
 let image = document.getElementById("changingImage")
+let wincount = document.getElementById("win-count")
+let button = document.getElementById("button")
 let guess = 10;
 let win = 0;
 
 let userpick;
-// on Load
+
 
 function pickerChanger()  {
     pickedName = smurfs[Math.floor(Math.random() * smurfs.length)];
@@ -39,6 +41,8 @@ function checkWin()  {
         win ++;
         image.src= "assets/images/win.gif"
         wordblanks.innerHTML = "YOU WIN!"
+        wincount.innerHTML = win;
+        button.classList.toggle("hide")
 
     }
 }

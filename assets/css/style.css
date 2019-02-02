@@ -18,6 +18,12 @@ body {
 
 .btn {
     background-color: #5DBCD2;
+    width: 100%;
+    height: 3em;
+}
+
+.btn h5 {
+    color: blanchedalmond;
 }
 
 .jumbo-box {
@@ -27,7 +33,9 @@ body {
     margin: 5px;
 }
 
-
+.hide {
+    display: none;
+}
 
 h1,
 h2,
