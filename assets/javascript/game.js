@@ -7,7 +7,9 @@ let pickedNameLetters = []
 let guessedLetter = []
 let wordblanks = document.getElementById("guess-word")
 let guessbox = document.getElementById("guessed-letters-box")
-let guess = 0;
+let guesscount = document.getElementById("guess-count")
+let image = document.getElementById("changingImage")
+let guess = 10;
 let win = 0;
 
 let userpick;
@@ -17,18 +19,30 @@ function pickerChanger()  {
     pickedName = smurfs[Math.floor(Math.random() * smurfs.length)];
     pickedImage = "assets/images/" + pickedName + ".png";
     pickedNameLength = pickedName.length;
-    image =document.getElementById("changingImage")
     image.src = pickedImage
     splitPickedName()
     blankSetter();
     
 }
 
-//on Key Press
+function game() {
+    checkPick()
+    countGuess()
+
+}
 
 function countGuess () {
+    if (guess > 1) {
     guess --;
-    
+    guesscount.innerText = guess;
+    } else {
+        
+        guesscount.innerText = "0";
+        image.src= "assets/images/lose.png"
+        wordblanks.innerHTML = "YOU LOSE"
+        
+    }
+
 }
 function splitPickedName () {
     for (var i=0; i <pickedNameLength; i++) {
@@ -44,6 +58,7 @@ function checkPick () {
                 blankWord[i]  = pickedNameLetters[i];
             }
             wordblanks.innerHTML = buildOurBlank()
+            
         }
 
 console.log(blankWord);
@@ -54,6 +69,7 @@ console.log(pickedNameLetters)
         }
         buildGuessBox()
         console.log("No Match")
+        
 
     }
 }
@@ -84,7 +100,7 @@ window.onload = pickerChanger()
 
 document.onkeyup = function (event) {
     userpick = String.fromCharCode(event.keyCode).toLowerCase();
-    checkPick();
+    game();
 }
 
 
