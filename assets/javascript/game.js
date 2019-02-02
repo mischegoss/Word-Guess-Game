@@ -1,4 +1,4 @@
-let smurfs = ["brainy", "smurfette", "astro", "actor", "baker"]
+let smurfs = ["actor", "astro", "baker", "brainy", "chef", "greedy", "painter", "scaredy", "smurfette", "vanity"]
 let pickedImage;
 let pickedName;
 let blankWord = []
@@ -47,16 +47,31 @@ function playAgain() {
     game()
 }
 
+function winTrigger() {
+    pickedNameOut()
+
+    if (smurfs.length > 0) {
+    win ++;
+    image.src= "assets/images/win.gif"
+    wordblanks.innerHTML = "YOU WIN!"
+    wincount.innerHTML = win;
+    button.classList.toggle("hide")
+    }
+    else {
+        if (smurfs.length === 0) {
+            image.src= "assets/images/lose.png"
+    wordblanks.innerHTML = "You are <br> SMURF-MAZING!"
+    guesscount.innerHTML = "⭐⭐⭐⭐⭐"
+    win.count.innerHTML = "⭐Smurftastic⭐"
+        }
+    }
+}
+
 function checkWin()  {
     if (blankWord.includes("_")) {
     console.log("No win")
     } else {
-        win ++;
-        image.src= "assets/images/win.gif"
-        wordblanks.innerHTML = "YOU WIN!"
-        wincount.innerHTML = win;
-        button.classList.toggle("hide")
-
+       setTimeout(winTrigger, 500);
     }
 }
 
@@ -107,6 +122,15 @@ console.log(pickedNameLetters)
     }
 }
 
+function pickedNameOut() {
+    let pickedNameIndex = smurfs.indexOf(pickedName)
+    smurfs.splice(pickedNameIndex, 1)
+    console.log(smurfs)
+    
+}
+   
+
+    
 
 function buildGuessBox() {
     for (var i = 0; i < guessedLetter.length; i++) {
