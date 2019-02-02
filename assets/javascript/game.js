@@ -12,6 +12,9 @@ let image = document.getElementById("changingImage");
 let wincount = document.getElementById("win-count");
 let button = document.getElementById("button");
 let goaway = document.getElementById("go-away");
+let getstarted = document.getElementById("get-started");
+let jumbotitle = document.getElementById("jumbo-title");
+let guessframe = document.getElementById("guess-frame")
 let guess = 10;
 let win = 0;
 let valid;
@@ -58,9 +61,16 @@ function winTrigger() {
   } else {
     if (smurfs.length === 0) {
       image.src = "assets/images/smurfy.gif";
-      wordblanks.innerHTML = "⭐You Know <br> Your Smurfs⭐";
+      wordblanks.innerHTML = "⭐⭐⭐⭐⭐⭐ <br>You Know <br> Your Smurfs<br>⭐⭐⭐⭐⭐⭐";
       guesscount.innerHTML = "⭐⭐⭐⭐⭐";
       wincount.innerHTML = "⭐Smurftastic⭐";
+      getstarted.innerHTML= "";
+      jumbotitle.innerHTML = "";
+      guessframe.classList.add("hide");
+
+     
+
+
     }
   }
 }
@@ -146,7 +156,6 @@ function blankSetter() {
 }
 
 window.onload = pickerChanger();
-
 document.onkeyup = function(event) {
   userpick = String.fromCharCode(event.keyCode).toLowerCase();
   game();
