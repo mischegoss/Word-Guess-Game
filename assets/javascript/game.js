@@ -40,7 +40,9 @@ function playAgain() {
     pickedNameLetters = []
     blankWord = []
     guessbox.innerHTML = ""
-    guess = 11;
+    guesscount.innerHTML = "10"
+    guess = 10;
+
     pickerChanger()
     game()
 }
@@ -59,10 +61,12 @@ function checkWin()  {
 }
 
 function countGuess () {
-    if (guess > 1) {
+    if (guess > 1 && event.keyCode > 64 && event.keyCode < 91) {
     guess --;
     guesscount.innerText = guess;
-    } else {
+    } else{
+
+    } if (guess === 1) {
         
         guesscount.innerText = "0";
         image.src= "assets/images/lose.png"
@@ -70,8 +74,9 @@ function countGuess () {
         button.classList.toggle("hide")
         
     }
-
 }
+
+
 function splitPickedName () {
     for (var i=0; i <pickedNameLength; i++) {
       pickedNameLetters.push(pickedName.charAt(i));
@@ -102,13 +107,6 @@ console.log(pickedNameLetters)
     }
 }
 
-function checkKeyStroke() {
-    if (event.keyCode > 64 && event.keyCode < 91) {
-        valid = "yes"
-    } else {
-        valid = "no"
-    }
-}
 
 function buildGuessBox() {
     for (var i = 0; i < guessedLetter.length; i++) {
