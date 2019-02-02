@@ -1,56 +1,59 @@
 
-/* To reboot GitPages */
 .card {
     width: 60%;
-    border: 5px solid #5DBCD2;
-}
-
-.guess-border-box {
-    border: 2px solid #5DBCD2;
-}
-
-.jumbotron {
-    background-image: url(../images/pjimage.png);
-    border-bottom: 5px solid #5DBCD2;
-}
-
-body {
+    border: 5px solid #5dbcd2;
+  }
+  
+  #changingImage {
+    width: 80%;
+  }
+  
+  .guess-border-box {
+    border: 2px solid #5dbcd2;
+  }
+  
+  
+  
+  body {
     background-color: #eef8fa;
-}
-
-.btn {
-    background-color: #5DBCD2;
+  }
+  
+  .btn {
+    background-color: #5dbcd2;
     width: 100%;
     height: 3em;
     font-size: 1.5em;
-}
-
-.guess-title {
+  }
+  
+  .guess-title {
     font: 1.5em;
-}
-
-.btn h5 {
+  }
+  
+  .btn h5 {
     color: blanchedalmond;
-}
-
-.jumbo-box {
-    background-color: rgba(93, 188, 210, .8);
-    width: 70%;
-    border: 5px solid #5DBCD2;
-    margin: 5px;
-}
-
-.hide {
+  }
+  
+  
+  
+  .hide {
     display: none;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
     font-family: Comic Sans;
     color: #133d46;
-}
+  }
+  
+  @media only screen and (min-width: 800px) {
+    #changingImage {
+      width: 50%;
+      padding: 20px;
+    }
+  }
+  

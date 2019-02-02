@@ -1,48 +1,49 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Word Guess Game</title>
-  </head>
-  <body>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Word Guess Game</title>
+</head>
 
-    <!--Jumbotron-->
-    
-      <h3 class=" text-center">How Well Do You Know the Smurfs?</h3>
-      <p class = "text-center">Press Any Key to Get Started</p>
-      
+<body>
 
-    <!--Main Container-->
+  <!--Header-->
 
-    <div class="card mx-auto">
-      
-        
-        <img id="changingImage" src="assets/images/pjimage.png" class="card-img-top mw-75" alt="Group of Retro Smurfs">
-        
-        <div class="card-body">
-          <h1 class="card-title text-center" id ="guess-word"></h1>
-          <div class ="guess-border-box">
-          <p class="card-title text-center guess-title text-mute">Letters Already Guessed</p>
-          <br>
-          <p class="card-text text-center" id="guessed-letters-box"></p>
-          </div>
-          <p class="card-text text-center">Number of Guesses Remaining: <span id = "guess-count">10</span></p>
-          <p class="card-text text-center">Win Count: <span id = "win-count">0</span></p>
-          <button onclick="playAgain()" class="btn btn-primary hide" id ="button"><h5>Get Smurfing! Play Again!</h5></button>
-        </div>
+  <h3 class="text-center">How Well Do You Know the Smurfs?</h3>
+  <p class="text-center">Press Any Key to Get Started</p>
+
+  <!--Main Container-->
+
+  <div class="card mx-auto">
+
+    <img class="mx-auto" id="changingImage" src="assets/images/pjimage.png" class="card-img-top mw-75" alt="Group of Retro Smurfs">
+
+    <div class="card-body">
+      <h1 class="card-title text-center" id="guess-word"></h1>
+      <div class="guess-border-box">
+        <p class="card-title text-center guess-title text-mute">Letters Already Guessed</p>
+        <br>
+        <p class="card-text text-center" id="guessed-letters-box"></p>
       </div>
+      <p class="card-text text-center">Number of Guesses Remaining: <span id="guess-count">10</span></p>
+      <p class="card-text text-center">Win Count: <span id="win-count">0</span></p>
+      <button onclick="playAgain()" class="btn btn-primary hide" id="button"><h5>Get Smurfing! Play Again!</h5></button>
+      <p class="card-text text-center hide" id="go-away">No Way! Get Me the Smurf <a href="https://www.google.com/">Out of Here</a></p>
+    </div>
+  </div>
 
-    <!--JavaScript -->
-    
-    <script src="assets/javascript/game.js"></script>
-    
-  </body>
+  <!--JavaScript -->
+
+  <script src="assets/javascript/game.js"></script>
+
+</body>
+
 </html>
