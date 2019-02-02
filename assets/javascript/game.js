@@ -27,8 +27,20 @@ function pickerChanger()  {
 
 function game() {
     checkPick()
+    checkWin()
     countGuess()
 
+}
+
+function checkWin()  {
+    if (blankWord.includes("_")) {
+    console.log("No win")
+    } else {
+        win ++;
+        image.src= "assets/images/lose.png"
+        wordblanks.innerHTML = "YOU WIN!"
+
+    }
 }
 
 function countGuess () {
