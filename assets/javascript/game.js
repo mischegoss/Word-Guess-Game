@@ -64,7 +64,7 @@ function buildOurBlank() {
 }
 
 
-/*This checks to make sure it is a valid key and if match replaces it, otherwise the letter is added to the guess box */
+/*This checks to make sure it is a valid key and if match replaces it, otherwise the letter is added to the guess box if it is not already there */
 
 function checkPick() {
   if (
@@ -82,7 +82,7 @@ function checkPick() {
     console.log(blankWord);
     console.log(pickedNameLetters);
   } else {
-    if (event.keyCode > 64 && event.keyCode < 91) {
+    if (event.keyCode > 64 && event.keyCode < 91 && (guessedLetter.indexOf(userpick) === -1)) {
       guessedLetter.push(userpick);
     }
     buildGuessBox();
@@ -101,12 +101,12 @@ function buildGuessBox() {
 /* This function counts guesses and triggers lose screen */
 
 function countGuess() {
-  if (guess > 1 && event.keyCode > 64 && event.keyCode < 91) {
+  if (guess > 0 && event.keyCode > 64 && event.keyCode < 91) {
     guess--;
     guesscount.innerText = guess;
   } else {
   }
-  if (guess === 1) {
+  if (guess === 0) {
     guesscount.innerText = "0";
     image.src = "assets/images/lose.png";
     wordblanks.innerHTML = "YOU LOSE";
@@ -121,7 +121,7 @@ function checkWin() {
   if (blankWord.includes("_")) {
     console.log("No win");
   } else {
-    setTimeout(winTrigger, 500);
+    setTimeout(winTrigger, 300);
   }
 }
 /****/
