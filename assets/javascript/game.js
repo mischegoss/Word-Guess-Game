@@ -13,7 +13,8 @@ let button = document.getElementById("button");
 let goaway = document.getElementById("go-away");
 let getstarted = document.getElementById("get-started");
 let jumbotitle = document.getElementById("jumbo-title");
-let guessframe = document.getElementById("guess-frame")
+let guessframe = document.getElementById("guess-frame");
+
 
 /* This sets initial guess and win counts */
 let guess = 10;
@@ -112,6 +113,10 @@ function countGuess() {
     wordblanks.innerHTML = "YOU LOSE";
     button.classList.toggle("hide");
     goaway.classList.toggle("hide");
+    jumbotitle.classList.add("hide");
+    getstarted.classList.add("hide");
+    
+
   }
 }
 
@@ -135,14 +140,14 @@ function winTrigger() {
     wincount.innerHTML = win;
     button.classList.toggle("hide");
     goaway.classList.toggle("hide");
+    jumbotitle.classList.add("hide");
+    getstarted.classList.add("hide");
   } else {
     if (smurfs.length === 0) {
       image.src = "assets/images/smurfy.gif";
       wordblanks.innerHTML = "⭐⭐⭐⭐⭐ <br>You Know <br> Your Smurfs<br>⭐⭐⭐⭐⭐";
       guesscount.innerHTML = "⭐⭐⭐⭐⭐";
       wincount.innerHTML = "⭐Smurftastic⭐";
-      getstarted.innerHTML= "";
-      jumbotitle.innerHTML = "";
       guessframe.classList.add("hide");
 
      
