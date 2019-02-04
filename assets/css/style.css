@@ -17,12 +17,13 @@ body {
 
 /*Styling for Card */
 .card {
-    width: 60%;
+    width: 70%;
     border: 5px solid #5dbcd2;
+    
   }
   
   #changing-image {
-    width: 80%;
+    width: 40%;
     padding: 10px;
   }
   
@@ -49,12 +50,17 @@ body {
     display: none;
   }
   
- /* Media query for larger screens (image adjust */
+ /* Media query for smaller screens (image adjust) */
   
-  @media only screen and (min-width: 800px) {
-    #changing-image {
-      width: 50%;
-      padding: 20px;
+  @media only screen and (max-width: 600px) {
+
+    #jumbo-title {
+      font-size: 1.2em;
     }
+
+    #changing-image {
+      width: 100%;
+    }
+    
   }
   

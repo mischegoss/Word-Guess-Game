@@ -138,7 +138,7 @@ function winTrigger() {
   } else {
     if (smurfs.length === 0) {
       image.src = "assets/images/smurfy.gif";
-      wordblanks.innerHTML = "⭐⭐⭐⭐⭐⭐ <br>You Know <br> Your Smurfs<br>⭐⭐⭐⭐⭐⭐";
+      wordblanks.innerHTML = "⭐⭐⭐⭐⭐ <br>You Know <br> Your Smurfs<br>⭐⭐⭐⭐⭐";
       guesscount.innerHTML = "⭐⭐⭐⭐⭐";
       wincount.innerHTML = "⭐Smurftastic⭐";
       getstarted.innerHTML= "";
